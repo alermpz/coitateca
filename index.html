@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coitateca — Biblioteca Virtual // Conocimiento Libre</title>
+  <meta name="description" content="Coitateca: biblioteca virtual comunitaria de Ocozocoautla, Chiapas. Acceso libre a textos de Anarquismo, Antropología, Feminismo, Filosofía, Historia y Marxismo.">
+  <meta property="og:title" content="Coitateca — Biblioteca Virtual de Ocozocoautla">
+  <meta property="og:description" content="Conocimiento libre. Textos digitales de pensamiento crítico.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- BOOT SCREEN -->
+  <div id="boot-screen" class="boot-screen">
+    <div id="boot-text"></div>
+  </div>
+
+  <!-- NOISE OVERLAY -->
+  <div class="noise-overlay"></div>
+
+  <!-- PIXEL GRID BG -->
+  <div class="pixel-grid"></div>
+
+  <!-- LOADING BAR -->
+  <div class="loading-bar" style="display:none;"></div>
+
+  <!-- ═══════════════════ NAV ═══════════════════ -->
+  <nav class="main-nav" id="main-nav">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo" onclick="navigateTo('home'); return false;">
+        <span>&gt;_</span> COITATECA<span class="blink">|</span>
+      </a>
+
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#" onclick="navigateTo('home'); return false;">Inicio</a></li>
+        <li><a href="#salas" onclick="scrollToSalas(); return false;">Salas</a></li>
+        <li><a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a></li>
+      </ul>
+
+      <div class="nav-search">
+        <input type="text" class="search-input" placeholder="buscar autor o libro..." aria-label="Buscar">
+      </div>
+
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- MARQUEE -->
+  <div class="marquee-container">
+    <marquee scrollamount="10">*** SYSTEM HACKED *** DOWNLOAD KNOWLEDGE *** NOW PLAYING: CONOCIMIENTO LIBRE *** WELCOME TO COITATECA *** ERROR 404: IGNORANCE NOT FOUND ***</marquee>
+  </div>
+
+  <!-- SEARCH RESULTS -->
+  <div class="search-results-panel win-window"></div>
+
+  <!-- ═══════════════════ HOME VIEW ═══════════════════ -->
+  <div class="view active" id="home-view">
+
+    <!-- HERO -->
+    <section class="hero" id="hero">
+      <div class="hero-bg">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <img src="cd.png" alt="Retro CD" class="retro-decal cd-decal">
+        <img src="floppy.png" alt="Retro Floppy" class="retro-decal floppy-decal">
+      </div>
+      <div class="hero-content">
+        <div class="hero-ascii" aria-hidden="true">
+ ██████╗ ██████╗ ██╗████████╗ █████╗ ████████╗███████╗ ██████╗ █████╗
+██╔════╝██╔═══██╗██║╚══██╔══╝██╔══██╗╚══██╔══╝██╔════╝██╔════╝██╔══██╗
+██║     ██║   ██║██║   ██║   ███████║   ██║   █████╗  ██║     ███████║
+██║     ██║   ██║██║   ██║   ██╔══██║   ██║   ██╔══╝  ██║     ██╔══██║
+╚██████╗╚██████╔╝██║   ██║   ██║  ██║   ██║   ███████╗╚██████╗██║  ██║
+ ╚═════╝ ╚═════╝ ╚═╝   ╚═╝   ╚═╝  ╚═╝   ╚═╝   ╚══════╝ ╚═════╝╚═╝  ╚═╝</div>
+        <h1 class="hero-title glitch" data-text="COITATECA">
+          COITATECA
+        </h1>
+        <p class="hero-subtitle">Ocozocoautla, Chiapas // Conocimiento Libre</p>
+        <p class="hero-desc">
+          Desde la sima de las cotorras, donde se encuentra la selva del ocote, nace un espacio digital para la
+          <span class="highlight">liberación del conocimiento</span>. Sin muros, sin censura, sin costo.
+          Una biblioteca que no pide credencial — solo curiosidad.
+        </p>
+        <a href="#salas" class="hero-cta" onclick="scrollToSalas(); return false;">
+          [&gt;] Explorar Salas
+        </a>
+      </div>
+      <div class="hero-scroll-hint" aria-hidden="true">&darr; scroll &darr;</div>
+    </section>
+
+    <!-- CATEGORIES -->
+    <section class="section" id="salas">
+      <div class="section-header">
+        <div class="section-tag">// sistema de archivos</div>
+        <h2 class="section-title">Salas de Lectura</h2>
+      </div>
+      <div class="cat-grid" id="categories-grid"></div>
+    </section>
+  </div>
+
+  <!-- ═══════════════════ AUTHORS VIEW ═══════════════════ -->
+  <div class="view" id="authors-view">
+    <section class="section" style="padding-top:100px;">
+      <div class="breadcrumb" id="authors-breadcrumb"></div>
+      <div class="section-header" style="text-align:left;">
+        <div class="section-tag">// directorio de autores</div>
+        <h2 class="section-title" id="authors-section-title"></h2>
+      </div>
+      <div class="authors-grid" id="authors-grid"></div>
+    </section>
+  </div>
+
+  <!-- ═══════════════════ BOOKS VIEW ═══════════════════ -->
+  <div class="view" id="books-view">
+    <section class="section" style="padding-top:100px;">
+      <div class="breadcrumb" id="books-breadcrumb"></div>
+      <div class="section-header" style="text-align:left;">
+        <div class="section-tag">// archivo de textos</div>
+        <h2 class="section-title" id="books-author-name"></h2>
+        <p style="font-size:12px; color:var(--text-dim); margin-top:4px;" id="books-author-meta"></p>
+      </div>
+      <div class="books-list" id="books-list"></div>
+    </section>
+  </div>
+
+  <!-- ═══════════════════ FOOTER ═══════════════════ -->
+  <footer class="footer">
+    <div class="footer-marquee">
+      <marquee scrollamount="5">⚠️ EL CONOCIMIENTO LIBRE ES UN DERECHO. COPIA, DISTRIBUYE Y COMPARTE. // BIENVENIDOS A LA COITATECA VIRTUAL // "LA EDUCACIÓN ES PRÁCTICA DE LA LIBERTAD." ⚠️</marquee>
+    </div>
+    <div class="footer-ascii" aria-hidden="true">
+ ╔═══════════════════════════════════════════╗
+ ║  El conocimiento no se encierra. Se abre. ║
+ ╚═══════════════════════════════════════════╝</div>
+    <p class="footer-text">Coitateca — Ocozocoautla, Chiapas</p>
+    <div class="footer-links">
+      <a href="https://www.instagram.com/" target="_blank" rel="noopener">[IG]</a>
+      <a href="#" onclick="navigateTo('home'); return false;">[INICIO]</a>
+      <a href="#salas" onclick="scrollToSalas(); return false;">[SALAS]</a>
+    </div>
+    
+    <!-- 88x31 BADGES -->
+    <div class="badges-container">
+      <div class="retro-badge badge-1">HECHO EN COITA</div>
+      <div class="retro-badge badge-2">ANTI SISTEMA</div>
+      <div class="retro-badge badge-3">100% LOFI</div>
+      <div class="retro-badge badge-4">NETSCAPE VALID</div>
+    </div>
+  </footer>
+
+
+
+  <!-- STATUS BAR -->
+  <div class="status-bar"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
